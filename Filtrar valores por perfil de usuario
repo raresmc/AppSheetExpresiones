@@ -1,0 +1,14 @@
+// Si el usuario que esta logeado es de tipo Admin,
+   entonces filtra la tabla Ventas donde el campo Cobrador no es vacio
+   esto me traera todos los datos de la tabla Ventas,
+   en caso contrario filtra la tabla Ventas solo con los datos que corresponde
+   al usuario logeado.
+   Donde Cobrador es un campo referenciado
+   La expresion se coloca en el campo que queremos filtrar en el apartado Suggeted_Values 
+   que en este caso es un campo referenciado y es de tipo List
+   *****************************************
+IF(
+  ANY(SELECT(Usuarios[Tipo],[Correo]=USEREMAIL()))="Admin",
+  FILTER("Ventas", ISNOTBLANK([Cobrador])),
+  FILTER("Ventas", [Cobrador]=USEREMAIL())
+)
