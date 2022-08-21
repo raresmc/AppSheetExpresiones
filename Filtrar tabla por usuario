@@ -1,0 +1,5 @@
+// Filtrar una tabla para que el usuario vea solo sus registros.
+   Para esto creamos un Slice donde en Row filter condition ponemos
+   la siguiente expresion.
+   
+   [Vendedor]=USEREMAIL()
